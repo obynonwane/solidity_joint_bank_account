@@ -16,10 +16,10 @@ contract BankAccount {
         uint256 amount, 
         uint256 timestamp
     );
-    event withdrawRequest(uint indexed withdrawId, uint timestamp);
+    event Withdraw(uint indexed withdrawId, uint timestamp);
     event AccountCreated(address[] owners, uint indexed id, uint timestamp);
 
-  // write structs for data types 
+  // write structs definitions for data types 
     struct WithdrawRequest {
         address user;
         uint amount;
@@ -40,10 +40,18 @@ contract BankAccount {
     uint nextAccountId;
     uint nextWithdrawalId;
 
+    //functions
     function deposit(uint accountId) external payable{}
     function createAccount(address[] calldata otherOwners) external {}
     function requestWithdrawl(uint accountId, uint amount) external{}
     function approveWithdrawl(uint accountId, uint withdrawId) external{}
     function withdraw(uint accountId, uint withdrawId) external{}
+
+
+    // getters
+    function getBalance() public view returns(uint){}
+    function getOwners() public view returns(address[] memory){}
+    function getApprovals() public view returns(uint){}
+    function getAccounts() public view returns (uint[] memory){}
 
 }
